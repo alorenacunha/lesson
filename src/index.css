@@ -31,7 +31,7 @@ body {
   display: flex;
   flex-flow: column;
   margin: 29px;
-  padding: 34px;
+  padding: 68px 34px;
   width: 283.4px;
   height: min-content;
   align-self: center;
