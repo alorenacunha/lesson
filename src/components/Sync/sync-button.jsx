@@ -14,7 +14,7 @@ const Button = styled.button`
   transition-property: transform;
 
   ${({ spin, theme }) => {
-    const split = theme.transition.split;
+    const split = theme.transition.rotations[1];
     return (
       spin &&
       `
@@ -26,11 +26,21 @@ const Button = styled.button`
 
   @media (max-width: ${({ theme }) => theme.breakpoints[0]}px) {
     ${({ theme }) => {
-      const split = "-90deg";
+      const split = theme.transition.rotations[0];
       return `
         transform: rotate(${split});
         -webkit-transform: rotate(${split});
       `;
+    }}
+    ${({ spin, theme }) => {
+      const split = theme.transition.rotations[2];
+      return (
+        spin &&
+        `
+        transform: rotate(${split});
+        -webkit-transform: rotate(${split});
+      `
+      );
     }}
   }
 `;

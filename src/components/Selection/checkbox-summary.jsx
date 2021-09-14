@@ -6,10 +6,10 @@ const CheckboxSummary = styled.input`
   -webkit-appearance: none;
   width: 14px;
   height: 14px;
-  border: ${({ theme }) => theme.borderWidth[1]} solid ${({ theme }) => theme.color.primary};
+  border: ${({ theme }) => theme.borderWidths[1]} solid ${({ theme }) => theme.color.primary};
   background: transparent;
   box-sizing: border-box;
-  border-radius: ${({ theme }) => theme.borderRadius[0]};
+  border-radius: ${({ theme }) => theme.borderRadius};
 
   cursor: pointer;
 

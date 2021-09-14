@@ -4,10 +4,10 @@ import styled from "styled-components";
 import Title from "../title";
 
 const SyncBox = styled.div`
-  margin-top: ${({ theme }) => theme.space[7]};
+  margin-top: ${({ theme }) => theme.spaces[7]};
 
   @media (max-width: ${({ theme }) => theme.breakpoints[0]}px) {
-    margin: ${({ theme }) => theme.space[4]} 0px;
+    margin: ${({ theme }) => theme.spaces[4]} 0px;
   }
 `;
 

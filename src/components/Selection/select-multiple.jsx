@@ -6,12 +6,12 @@ import SelectInput from "./select-input";
 
 const SelectBox = styled.div`
   width: 216.72px;
-  margin-top: ${({ theme }) => theme.space[3]};
+  margin-top: ${({ theme }) => theme.spaces[3]};
 
   background: ${({ theme }) => theme.color.light};
-  border: ${({ theme }) => theme.borderWidth[0]} solid ${({ theme }) => theme.color.gray};
+  border: ${({ theme }) => theme.borderWidths[0]} solid ${({ theme }) => theme.color.gray};
   box-sizing: border-box;
-  border-radius: ${({ theme }) => theme.borderRadius[0]};
+  border-radius: ${({ theme }) => theme.borderRadius};
 `;
 
 const SelectContainer = styled.div`
@@ -20,7 +20,7 @@ const SelectContainer = styled.div`
   position: relative;
   height: 44.46px;
   align-items: center;
-  padding: 0px ${({ theme }) => theme.space[2]};
+  padding: 0px ${({ theme }) => theme.spaces[2]};
 `;
 
 const SelectMultipleCheck = (props) => {

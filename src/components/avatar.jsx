@@ -6,7 +6,7 @@ const Round = styled.div`
   width: 66.13px;
   height: 66.13px;
 
-  border: ${({theme})=> theme.borderWidth[0]} solid  ${({theme})=> theme.color.lightGray1};
+  border: ${({theme})=> theme.borderWidths[0]} solid  ${({theme})=> theme.color.lightGray1};
   box-sizing: border-box;
   border-radius: 50%;
   justify-content: center;

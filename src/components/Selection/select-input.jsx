@@ -12,12 +12,12 @@ const SelectInputBox = styled.div`
     background: transparent;
     border: unset;
     height: 44.46px;
-    padding-left: ${({ theme }) => theme.space[1]};
+    padding-left: ${({ theme }) => theme.spaces[1]};
 
     font-family: Noto Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: ${({ theme }) => theme.fontSize[1]};
+    font-size: ${({ theme }) => theme.fontSizes[1]};
     line-height: 22px;
 
     -webkit-appearance: none;
@@ -32,7 +32,7 @@ const ArrowCollapse = styled.div`
   transition-property: transform;
 
   ${({ expanded, theme }) => {
-    const split = theme.transition.split;
+    const split = theme.transition.rotations[1];
     return (
       expanded &&
       `

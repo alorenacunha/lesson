@@ -23,9 +23,9 @@ const View = styled.div`
 const Background = styled.img`
   position: absolute;
   z-index: -1;
-  top: ${({ theme }) => theme.space[3]};
+  top: ${({ theme }) => theme.spaces[3]};
   @media (max-width: ${({ theme }) => theme.breakpoints[0]}px) {
-    top: ${({ theme }) => theme.space[9]};
+    top: ${({ theme }) => theme.spaces[9]};
   }
 `;
 
@@ -33,12 +33,12 @@ const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
-  margin: ${({ theme }) => theme.space[6]} 0px;
+  margin: ${({ theme }) => theme.spaces[6]} 0px;
   justify-content: center;
   @media (max-width: ${({ theme }) => theme.breakpoints[0]}px) {
     flex-flow: column wrap;
     align-items: center;
-    margin: ${({ theme }) => theme.space[5]} 0px;
+    margin: ${({ theme }) => theme.spaces[5]} 0px;
   }
 `;
 

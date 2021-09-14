@@ -2,7 +2,7 @@ import styled from "styled-components";
 import CheckSmallImg from "../../assets/img/check-small.svg";
 
 const CheckboxListContainer = styled.div`
-  font-size: ${({ theme }) => theme.fontSize[2]};
+  font-size: ${({ theme }) => theme.fontSizes[2]};
   line-height: 22px;
   max-height: 140px;
   overflow-y: auto;
@@ -28,7 +28,7 @@ const CheckboxListContainer = styled.div`
 
   label {
     display: block;
-    padding-left: ${({ theme }) => theme.space[2]};
+    padding-left: ${({ theme }) => theme.spaces[2]};
     line-height: 22px;
     height: 44.46px;
     display: flex;
@@ -42,11 +42,11 @@ const CheckboxListContainer = styled.div`
     -webkit-appearance: none;
     width: 14px;
     height: 14px;
-    border: ${({ theme }) => theme.borderWidth[1]} solid ${({ theme }) => theme.color.primary};
+    border: ${({ theme }) => theme.borderWidths[1]} solid ${({ theme }) => theme.color.primary};
     background: transparent;
     box-sizing: border-box;
     border-radius: ${({ theme }) => theme.borderRadius};
-    margin-right: ${({ theme }) => theme.space[2]};
+    margin-right: ${({ theme }) => theme.spaces[2]};
     cursor:pointer;
   }
 
