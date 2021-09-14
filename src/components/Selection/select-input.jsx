@@ -1,14 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import ArrowImg from "../../assets/img/arrow-down.svg";
+import SelectText from "./select-text";
 
-const SelectInputBox = styled.div`
+const SelectInputBox = styled.div(SelectText)`
   position: relative;
   cursor: pointer;
   display: flex;
   width: 100%;
   justify-content: space-between;
-  select {
+  select  {
     background: transparent;
     border: unset;
     height: 44.46px;

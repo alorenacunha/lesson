@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.color.gray};
-    border-radius: 50px;
+    border-radius: 100px;
   }
 
   ::-webkit-scrollbar-thumb:hover {

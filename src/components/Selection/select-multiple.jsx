@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import CheckboxList from "./chackbox-list";
+import CheckboxList from "./checkbox-list";
 import CheckboxSummary from "./checkbox-summary";
 import SelectInput from "./select-input";
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CheckSmallImg from "../../assets/img/check-small.svg";
+import SelectText from "./select-text";
 
 const CheckboxListContainer = styled.div`
   font-size: ${({ theme }) => theme.fontSizes[2]};
@@ -47,13 +48,14 @@ const CheckboxListContainer = styled.div`
     box-sizing: border-box;
     border-radius: ${({ theme }) => theme.borderRadius};
     margin-right: ${({ theme }) => theme.spaces[2]};
-    cursor:pointer;
+    cursor: pointer;
   }
 
   input[type="checkbox"]:checked {
     background: ${({ theme }) => theme.color.primary};
     content: url(${CheckSmallImg});
   }
+
 `;
 
 const CheckboxList = (props) => {
@@ -62,7 +64,7 @@ const CheckboxList = (props) => {
       {props.labelList.map((item, index) => (
         <label key={"label-" + item.label + "-" + index}>
           <input type="checkbox" key={"checkbox-" + item.label + "-" + index} checked={item.selected} onChange={() => props.onChange(index)} />
-          <div>{item.label}</div>
+          <SelectText>{item.label}</SelectText>
         </label>
       ))}
     </CheckboxListContainer>

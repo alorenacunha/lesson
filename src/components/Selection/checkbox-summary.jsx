@@ -11,6 +11,7 @@ const CheckboxSummary = styled.input`
   box-sizing: border-box;
   border-radius: ${({ theme }) => theme.borderRadius};
 
+  font-size: ${({ theme }) => theme.fontSizes[1]};
   cursor: pointer;
 
   :checked {
