@@ -35,6 +35,7 @@ const SelectMultipleCheck = (props) => {
 
   useEffect(() => {
     let checkbox = document.getElementById(props.id + "-checkbox-all-selection");
+
     switch (allSelection) {
       case 0:
         checkbox.checked = false;
@@ -45,6 +46,7 @@ const SelectMultipleCheck = (props) => {
         checkbox.indeterminate = false;
         break;
       default:
+        checkbox.checked = false;
         checkbox.indeterminate = true;
         break;
     }
