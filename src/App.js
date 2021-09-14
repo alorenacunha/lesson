@@ -1,9 +1,12 @@
-import './App.css';
-import Home from './pages/home';
+import { ThemeProvider } from "styled-components";
+import Home from "./pages/home";
+import { theme } from "./assets/theme";
 
 function App() {
   return (
-    <Home />
+    <ThemeProvider theme={theme}>
+      <Home />
+    </ThemeProvider>
   );
 }
 
