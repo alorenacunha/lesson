@@ -8,4 +8,4 @@ Page developed based on a [_Design Spec_](https://www.figma.com/proto/0elkZJOcFz
 
 Published on [/synccontactstool.netlify.app](https://synccontactstool.netlify.app/)
 
-Apresentation [Video](https://docs.google.com/uc?export=download&id=1F-v4x_KnwPJNrL36KTpCQbgtF4wubI9S)
+Apresentation Video [Watch](https://drive.google.com/file/d/1F-v4x_KnwPJNrL36KTpCQbgtF4wubI9S/view?usp=sharing) 
