@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import ArrowImg from "../../assets/img/arrow-down.svg";
-import SelectText from "./select-text";
 
-const SelectInputBox = styled.div(SelectText)`
+const SelectInputBox = styled.div`
   position: relative;
   cursor: pointer;
   display: flex;
