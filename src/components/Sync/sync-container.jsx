@@ -15,19 +15,23 @@ const SyncBox = styled.div`
 const SyncContainer = () => {
   const { syncContacts } = useContext(EmailsContext);
   const [syncDone, setSyncDone] = useState(false);
+  const [disableSync, setDisableSync] = useState(false);
 
   const syncContactsRequest = () => {
+    if (disableSync) return;
     const updated = !syncDone;
     setSyncDone(updated);
-    console.log({ updated });
+    
     syncContacts();
+    setDisableSync(true);
 
     setTimeout(() => {
       restart();
-    }, 4000);
+    }, 3500);
   };
 
   const restart = () => {
+    setDisableSync(false);
     setSyncDone(false);
   };
 

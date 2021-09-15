@@ -29,43 +29,12 @@ const SelectMultipleCheck = (props) => {
   const [expandedCheckboxList, setExpandedCheckBoxList] = useState(false);
   const [allSelection, setAllSelection] = useState(1);
 
-  useEffect(() => {
-    console.log("contacts mudou");
-    emails[props.emailId].contactsSelection = emails[props.emailId].contacts.map((item) => {
-      return { label: item, selected: true };
-    });
-    setEmails({ ...emails });
-  }, [emails[props.emailId].contacts]);
-
-  useEffect(() => {
-    let checkbox = document.getElementById(props.id + "-checkbox-all-selection");
-
-    switch (allSelection) {
-      case 0:
-        checkbox.checked = false;
-        checkbox.indeterminate = false;
-        break;
-      case 1:
-        checkbox.checked = true;
-        checkbox.indeterminate = false;
-        break;
-      default:
-        checkbox.checked = false;
-        checkbox.indeterminate = true;
-        break;
-    }
-  }, [allSelection, props.id]);
-
-  useEffect(() => {
-    handleAllSelection();
-  }, [emails[props.emailId].contactsSelection]);
-
   const handleAllSelection = () => {
     let allTrue = true;
     let allFalse = true;
     emails[props.emailId].contactsSelection.forEach((item) => (item.selected ? (allFalse = false) : (allTrue = false)));
     const updateAllselection = allTrue ? 1 : allFalse ? 0 : 2;
-    console.log({ updateAllselection });
+    
     setAllSelection(updateAllselection);
   };
 
@@ -89,10 +58,41 @@ const SelectMultipleCheck = (props) => {
 
   const onCheckboxChange = (index) => {
     emails[props.emailId].contactsSelection[index].selected = !emails[props.emailId].contactsSelection[index].selected;
-    console.log(emails[props.emailId].contactsSelection[index]);
+    
     setEmails({ ...emails });
     handleAllSelection();
   };
+
+  const handleAllSelectionCheckbox = () => {
+    let checkbox = document.getElementById(props.id + "-checkbox-all-selection");
+
+    switch (allSelection) {
+      case 0:
+        checkbox.checked = false;
+        checkbox.indeterminate = false;
+        break;
+      case 1:
+        checkbox.checked = true;
+        checkbox.indeterminate = false;
+        break;
+      default:
+        checkbox.checked = false;
+        checkbox.indeterminate = true;
+        break;
+    }
+  };
+
+
+  const handleSelectionContacts = () => {
+    emails[props.emailId].contactsSelection = emails[props.emailId].contacts.map((item) => {
+      return { label: item, selected: true };
+    });
+    setEmails({ ...emails });
+    setAllSelection(1);
+  };
+
+  useEffect(handleAllSelectionCheckbox, [allSelection, props.id]);
+  useEffect(handleSelectionContacts, [emails[props.emailId].contacts]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <SelectBox>

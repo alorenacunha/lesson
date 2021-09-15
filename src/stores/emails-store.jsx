@@ -9,7 +9,7 @@ const emailsInitial = {
     title: "Gmail",
     description: "These Gmail contacts will sync to MailChimp",
     icon: GmailLogo,
-    contacts: ["1", "2", "3", "4", "5"],
+    contacts: ["Family", "Relatives", "Work", "Gym", "Bar"],
     contactsSelection: [],
   },
   mailchimp: {
@@ -17,7 +17,7 @@ const emailsInitial = {
     title: "Mailchimp",
     description: "These Mailchimp contacts will sync to Gmail",
     icon: MailchimpLogo,
-    contacts: ["6", "7"],
+    contacts: ["Friends", "College"],
     contactsSelection: [],
   },
 };
