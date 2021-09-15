@@ -1,14 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import GmailLogo from "../assets/img/gmail.svg";
-import MailchimpLogo from "../assets/img/mailchimp.svg";
 import ShadowImg from "../assets/img/shadow.svg";
-import Avatar from "../components/avatar";
-import Card from "../components/card";
-import Paragraph from "../components/paragraph";
+import Card from "../components/Card/card";
 import SyncContainer from "../components/Sync/sync-container";
-import SelectMultipleCheck from "../components/Selection/select-multiple";
-import Title from "../components/title";
+import EmailsStore, { EmailsContext } from "../stores/emails-store";
 
 const View = styled.div`
   width: 100%;
@@ -43,25 +38,21 @@ const Container = styled.div`
 `;
 
 const Home = () => {
+  const { emails } = useContext(EmailsContext);
+
+  
+
   return (
-    <View>
-      <Background src={ShadowImg} />
-      <Container>
-        <Card id="gmail-contacts">
-          <Avatar icon={GmailLogo} />
-          <Title>Gmail</Title>
-          <Paragraph>These Gmail contacts will sync to MailChimp</Paragraph>
-          <SelectMultipleCheck id="gmail-contacts-selection" listOptions={["WorkFriends", "Another label", "Family", "Relatives", "Friends"]} />
-        </Card>
-        <SyncContainer />
-        <Card id="mailchimp-contacts">
-          <Avatar icon={MailchimpLogo} />
-          <Title>Mailchimp</Title>
-          <Paragraph>These Mailchimp contacts will sync to Gmail</Paragraph>
-          <SelectMultipleCheck id="mailchimp-contacts-selection" listOptions={["WorkFriends", "Family"]} />
-        </Card>
-      </Container>
-    </View>
+    <EmailsStore>
+      <View>
+        <Background src={ShadowImg} />
+        <Container>
+          <Card id="gmail-contacts" email={emails.gmail}></Card>
+          <SyncContainer />
+          <Card id="mailchimp-contacts" email={emails.mailchimp}></Card>
+        </Container>
+      </View>
+    </EmailsStore>
   );
 };
 export default Home;

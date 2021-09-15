@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { EmailsContext } from "../../stores/emails-store";
 import CheckboxList from "./checkbox-list";
 import CheckboxSummary from "./checkbox-summary";
 import SelectInput from "./select-input";
@@ -24,14 +25,17 @@ const SelectContainer = styled.div`
 `;
 
 const SelectMultipleCheck = (props) => {
+  const { emails, setEmails } = useContext(EmailsContext);
   const [expandedCheckboxList, setExpandedCheckBoxList] = useState(false);
   const [allSelection, setAllSelection] = useState(1);
-  const [labelList, setLabelList] = useState(() => {
-    const updatedListOptions = props.listOptions.map((item) => {
-      return { label: item, selected: 1 };
+
+  useEffect(() => {
+    console.log("contacts mudou");
+    emails[props.emailId].contactsSelection = emails[props.emailId].contacts.map((item) => {
+      return { label: item, selected: true };
     });
-    return updatedListOptions;
-  });
+    setEmails({ ...emails });
+  }, [emails[props.emailId].contacts]);
 
   useEffect(() => {
     let checkbox = document.getElementById(props.id + "-checkbox-all-selection");
@@ -53,12 +57,17 @@ const SelectMultipleCheck = (props) => {
   }, [allSelection, props.id]);
 
   useEffect(() => {
+    handleAllSelection();
+  }, [emails[props.emailId].contactsSelection]);
+
+  const handleAllSelection = () => {
     let allTrue = true;
     let allFalse = true;
-    labelList.forEach((item) => (item.selected ? (allFalse = false) : (allTrue = false)));
+    emails[props.emailId].contactsSelection.forEach((item) => (item.selected ? (allFalse = false) : (allTrue = false)));
     const updateAllselection = allTrue ? 1 : allFalse ? 0 : 2;
+    console.log({ updateAllselection });
     setAllSelection(updateAllselection);
-  }, [labelList]);
+  };
 
   const onShowCheckboxList = () => {
     if (expandedCheckboxList) {
@@ -71,17 +80,18 @@ const SelectMultipleCheck = (props) => {
   const onSelectAll = () => {
     const updatedAllselection = allSelection === 1 ? 0 : 1;
     setAllSelection(updatedAllselection);
-    setLabelList(
-      labelList.map((item) => {
-        item.selected = updatedAllselection;
-        return item;
-      })
-    );
+    emails[props.emailId].contactsSelection = emails[props.emailId].contactsSelection.map((item) => {
+      item.selected = updatedAllselection;
+      return item;
+    });
+    setEmails({ ...emails });
   };
 
   const onCheckboxChange = (index) => {
-    labelList[index].selected = !labelList[index].selected;
-    setLabelList([...labelList]);
+    emails[props.emailId].contactsSelection[index].selected = !emails[props.emailId].contactsSelection[index].selected;
+    console.log(emails[props.emailId].contactsSelection[index]);
+    setEmails({ ...emails });
+    handleAllSelection();
   };
 
   return (
@@ -92,7 +102,7 @@ const SelectMultipleCheck = (props) => {
         <SelectInput id={props.id + "-select"} expanded={expandedCheckboxList} onClick={() => onShowCheckboxList()}></SelectInput>
       </SelectContainer>
 
-      <CheckboxList id={props.id + "-checkbox"} expanded={expandedCheckboxList} labelList={labelList} onChange={(index) => onCheckboxChange(index)}></CheckboxList>
+      <CheckboxList id={props.id + "-checkbox"} expanded={expandedCheckboxList} labelList={emails[props.emailId].contactsSelection} onChange={(index) => onCheckboxChange(index)}></CheckboxList>
     </SelectBox>
   );
 };
